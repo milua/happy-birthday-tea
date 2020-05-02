@@ -1,2 +1,2 @@
-<app-logo></app-logo>
-<app-dialog class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()">Test</app-dialog>
+<app-logo *ngIf="showLogo"></app-logo>
+<app-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()">Test</app-dialog>

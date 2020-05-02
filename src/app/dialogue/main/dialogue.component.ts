@@ -14,7 +14,7 @@ export class DialogueComponent {
   }
 
   get isLastPage(): boolean {
-    return this.currentTextIndex === this.dialog.length;
+    return this.currentTextIndex === this.dialog.length - 1;
   }
 
   get isFirstPage(): boolean {
@@ -35,5 +35,9 @@ export class DialogueComponent {
 
   onPreviousClicked(): void {
     this.currentTextIndex -= 1;
+  }
+
+  get isNextEnabled(): boolean {
+    return this.currentTextIndex < this.dialog.length;
   }
 }

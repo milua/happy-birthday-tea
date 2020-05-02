@@ -3,5 +3,5 @@
 </div>
 <div>
   <button [disabled]="isFirstPage" (click)="onPreviousClicked()">Previous</button>
-  <button [disabled]="isLastPage" (click)="onNextClicked()">Next</button>
+  <button [disabled]="!isNextEnabled" (click)="onNextClicked()">Next</button>
 </div>

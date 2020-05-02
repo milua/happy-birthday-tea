@@ -10,6 +10,8 @@ export class AppComponent implements OnInit{
   title = 'app';
   private allDialogues: DialogueText[];
   dialogue: DialogueText;
+  isDialogOpen: boolean = true;
+  showLogo: boolean = false;
 
   ngOnInit(): void {
     this.allDialogues = [
@@ -20,5 +22,7 @@ export class AppComponent implements OnInit{
 
   onDialogEnded(): void {
     // TODO play next scene
+    this.isDialogOpen = false;
+    this.showLogo = true;
   }
 }
