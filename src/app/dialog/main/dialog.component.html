@@ -1,1 +1,7 @@
-<div><ng-content></ng-content></div>
+<div class="container">
+  {{text}}
+</div>
+<div>
+  <button [disabled]="isFirstPage" (click)="onPreviousClicked()">Previous</button>
+  <button [disabled]="isLastPage" (click)="onNextClicked()">Next</button>
+</div>
