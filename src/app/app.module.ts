@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DialogueModule } from './dialogue/dialogue.module';
 import { SceneModule } from './scene/scene.module';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
