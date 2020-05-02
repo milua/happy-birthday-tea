@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+
+p, div {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
