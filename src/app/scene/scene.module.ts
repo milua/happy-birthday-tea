@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main/main.component';
+import { SceneComponent } from './main/scene.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [SceneComponent],
+  exports: [
+    SceneComponent
+  ],
   imports: [
     CommonModule
   ]

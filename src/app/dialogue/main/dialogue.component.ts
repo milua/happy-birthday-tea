@@ -1,19 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  templateUrl: './dialogue.component.html',
+  styleUrls: ['./dialogue.component.scss']
 })
-export class DialogComponent {
+export class DialogueComponent {
   @Input() dialog: string[];
+  @Output() public dialogEnded: EventEmitter<any> = new EventEmitter<any>();
   private currentTextIndex: number = 0;
 
   constructor() {
   }
 
   get isLastPage(): boolean {
-    return this.currentTextIndex === this.dialog.length - 1;
+    return this.currentTextIndex === this.dialog.length;
   }
 
   get isFirstPage(): boolean {
@@ -25,7 +26,11 @@ export class DialogComponent {
   }
 
   onNextClicked(): void {
+    if(this.isLastPage) {
+      this.dialogEnded.emit();
+    } else {
     this.currentTextIndex += 1;
+    }
   }
 
   onPreviousClicked(): void {
