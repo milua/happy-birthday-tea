@@ -1,3 +1,4 @@
 export enum Clues {
-  MISSING_CUP
+  MISSING_CUP,
+  BROKEN_WINDOW
 }

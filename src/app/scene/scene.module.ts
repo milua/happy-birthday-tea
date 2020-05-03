@@ -5,11 +5,12 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
 import { NotificationComponent } from './components/notification/notification.component';
 import { BagpackButtonComponent } from './components/inventory/bagpack-button/bagpack-button.component';
 import { InventoryPanelComponent } from './components/inventory/inventory-panel/inventory-panel.component';
+import { NeighborComponent } from './neighbor/neighbor.component';
 
 
 
 @NgModule({
-  declarations: [KitchenComponent, BackButtonComponent, NotificationComponent, BagpackButtonComponent, InventoryPanelComponent],
+  declarations: [KitchenComponent, BackButtonComponent, NotificationComponent, BagpackButtonComponent, InventoryPanelComponent, NeighborComponent],
   exports: [
     KitchenComponent,
     NotificationComponent,

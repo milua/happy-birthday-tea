@@ -65,4 +65,9 @@ export class KitchenComponent implements OnInit {
     this.imageUrl = this.urls[2];
     this.openDialog.emit(this.ClickAction.KITCHEN_EMPTY_SPOT);
   }
+
+  onLeftWindowClicked(): void {
+    this.imageUrl = this.urls[4];
+    this.openDialog.emit(this.ClickAction.KITCHEN_LEFT_WINDOW)
+  }
 }

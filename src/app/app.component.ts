@@ -78,10 +78,26 @@ export class AppComponent implements OnInit {
         this.isDialogOpen = true;
         break;
       case ClickActions.KITCHEN_DOOR:
-        this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
+        if(this.foundClues.length < 2) {
+          this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
+        } else  {
+          this.dialogue = [DialogueText.KITCHEN_DOOR[1]];
+        }
         this.isDialogOpen = true;
         break;
-
+      case ClickActions.KITCHEN_RIGHT_WINDOW:
+        this.dialogue = [DialogueText.KITCHEN_RIGHT_WINDOW[this.getRandomTextIndex(DialogueText.KITCHEN_RIGHT_WINDOW.length)]];
+        this.isDialogOpen = true;
+        break;
+      case ClickActions.KITCHEN_LEFT_WINDOW:
+        if(this.foundClues.includes(Clues.BROKEN_WINDOW)){
+          this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[1]];
+        } else {
+        this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[0]];
+        this.foundClues.push(Clues.BROKEN_WINDOW)
+        }
+        this.isDialogOpen = true;
+        break;
     }
   }
 

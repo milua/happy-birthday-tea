@@ -17,5 +17,6 @@
 </ng-container>
 <ng-container *ngIf="showWindowActions">
   <app-back-button (click)="showKitchen()"></app-back-button>
-
+  <button class="left-window" (click)="onLeftWindowClicked()"></button>
+  <button class="right-window" (click)="openDialog.emit(ClickAction.KITCHEN_RIGHT_WINDOW)"></button>
 </ng-container>
