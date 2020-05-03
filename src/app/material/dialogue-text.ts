@@ -9,7 +9,7 @@ export class DialogueText {
   static KITCHEN_POT: string[] = ['A pot with water.', 'Not very interesting...'];
   static KITCHEN_ELASTICS: string[] = ['Always good to have some elastics with you.', 'I already have enough of them.'];
   static KITCHEN_COOKIES: string[] = ['I shouldn\'t but...*crunch* *crunch*', 'Cookies!'];
-  static KITCHEN_DOOR: string[] = ['I need to find out, what\'s going on, first.', 'Let\'s catch the cup crasher!'];
+  static KITCHEN_DOOR: string[] = ['I need to find out, what\'s going on, first.', 'Ok, let\'s catch the cup crasher!'];
 
   static CUPBOARD_CUPS: string[] = ['Just some regular cups', 'I think, the illustrator was too lazy to draw more kinds of cups.', 'Very plain cups.'];
   static CUPBOARD_EMPT_SPOT: string[] = ['Oh no! My favority tea cup is missing!', 'It\'s missing!'];

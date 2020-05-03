@@ -6,6 +6,7 @@ import { Items } from './material/items';
 import { NotificationService } from './scene/components/notification/services/notification.service';
 import { Clues } from './material/clues';
 import { Sticker } from './material/sticker';
+import { Scene } from './material/scene';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,15 @@ export class AppComponent implements OnInit {
   showLogo: boolean = false;
   showKitchen: boolean = false;
   showInventory: boolean = false;
+  showNeighbor: boolean = false;
 
   inventory: Items[] = [];
   foundClues: Clues[] = [];
   foundStickers: Sticker[] = [];
+  lastScene: string | undefined = undefined;
 
   constructor(private timerService: TimerService, private notificationService: NotificationService) {
-    this.timerService.timeRunOut.subscribe(() => this.playNextScene());
+    this.timerService.timeRunOut.subscribe(() => this.playNextScene(Scene.KITCHEN));
   }
 
   ngOnInit(): void {
@@ -33,10 +36,15 @@ export class AppComponent implements OnInit {
 
   onDialogEnded(): void {
     this.isDialogOpen = false;
+    console.log(this.dialogue);
     if (this.dialogue === DialogueText.INTRO) {
       this.showLogo = true;
       this.timerService.timeLeft = 10;
       this.timerService.startTimer();
+    } else if(this.dialogue.includes('Ok, let\'s catch the cup crasher!')) {
+      console.log('play');
+
+      this.playNextScene(Scene.NEIGHBOR);
     }
   }
 
@@ -77,24 +85,25 @@ export class AppComponent implements OnInit {
         this.dialogue = [DialogueText.KITCHEN_COOKIES[this.getRandomTextIndex(DialogueText.KITCHEN_COOKIES.length)]];
         this.isDialogOpen = true;
         break;
-      case ClickActions.KITCHEN_DOOR:
-        if(this.foundClues.length < 2) {
-          this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
-        } else  {
-          this.dialogue = [DialogueText.KITCHEN_DOOR[1]];
-        }
-        this.isDialogOpen = true;
-        break;
       case ClickActions.KITCHEN_RIGHT_WINDOW:
         this.dialogue = [DialogueText.KITCHEN_RIGHT_WINDOW[this.getRandomTextIndex(DialogueText.KITCHEN_RIGHT_WINDOW.length)]];
         this.isDialogOpen = true;
         break;
       case ClickActions.KITCHEN_LEFT_WINDOW:
-        if(this.foundClues.includes(Clues.BROKEN_WINDOW)){
+        if (this.foundClues.includes(Clues.BROKEN_WINDOW)) {
           this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[1]];
         } else {
-        this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[0]];
-        this.foundClues.push(Clues.BROKEN_WINDOW)
+          this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[0]];
+          this.foundClues.push(Clues.BROKEN_WINDOW)
+        }
+        this.isDialogOpen = true;
+        break;
+      case ClickActions.KITCHEN_DOOR:
+        if (this.foundClues.length < 2) {
+          this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
+        } else {
+          this.dialogue = [DialogueText.KITCHEN_DOOR[1]];
+          this.lastScene = 'Next';
         }
         this.isDialogOpen = true;
         break;
@@ -113,9 +122,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private playNextScene(): void {
-    this.showLogo = false;
-    this.showKitchen = true;
+  private playNextScene(scene: Scene): void {
+    if (scene === Scene.KITCHEN) {
+      this.showLogo = false;
+      this.showKitchen = true;
+    } else if (scene === Scene.NEIGHBOR) {
+      this.showKitchen = false;
+      this.showNeighbor = true;
+    }
   }
 
   private getRandomTextIndex(textLength: number): number {

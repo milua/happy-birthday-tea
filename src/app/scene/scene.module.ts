@@ -16,6 +16,7 @@ import { NeighborComponent } from './neighbor/neighbor.component';
     NotificationComponent,
     BagpackButtonComponent,
     InventoryPanelComponent,
+    NeighborComponent,
   ],
   imports: [
     CommonModule
