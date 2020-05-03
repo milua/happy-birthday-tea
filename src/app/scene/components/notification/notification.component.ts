@@ -7,15 +7,17 @@ import { NotificationService } from './services/notification.service';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
-
-
   constructor(private notificationService: NotificationService) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  get isVisible(): boolean {
+    return this.notificationService.isVisible;
   }
 
   get message(): string {
     return this.notificationService.message;
-  }
-
-  ngOnInit(): void {
   }
 }

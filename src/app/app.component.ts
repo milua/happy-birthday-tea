@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   showLogo: boolean = false;
   showKitchen: boolean = false;
   inventory: Items[] = [];
+  showInventory: boolean = false;
 
   constructor(private timerService: TimerService, private notificationService: NotificationService) {
     this.timerService.timeRunOut.subscribe(() => this.playNextScene());

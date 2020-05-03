@@ -5,9 +5,8 @@ button {
   border-color: transparent;
   background-color: #ac2948;
   z-index: 10;
-
   position: absolute;
-  left: 9vw;
+  right: 9vw;
   top: 1vw;
 
   &:hover {
@@ -15,10 +14,21 @@ button {
   }
 
   &:active {
-    background-color: #ac2948;
+    background-color: #ff3163;
   }
 
   &:focus {
     outline: 0;
+  }
+}
+.checked {
+  background-color: #ff3163;
+
+  &:hover {
+    background-color: #ff3163;
+  }
+
+  &:active {
+    background-color: #ac2948;
   }
 }

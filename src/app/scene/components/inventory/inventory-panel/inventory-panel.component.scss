@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #000000a3;
+  width: 83vw;
+  height: 47vw;
+  position: absolute;
+  top: 0vw;
+  right: 8.5vw;
+  z-index: 9;
+}
+h1 {
+  align-self: center;
+}
+
+.container-items {
+  display: flex;
+}
+.item {
+  background-color: black;
+  width: 5vw;
+  height: 5vw;
+  margin: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
