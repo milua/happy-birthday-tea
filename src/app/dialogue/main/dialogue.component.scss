@@ -6,5 +6,22 @@
     height: 100px;
     padding: 1rem;
     font-size: 1.5rem;
+
+    span {
+      -webkit-animation: fadeIn 1s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeIn 1s; /* Firefox < 16 */
+      -ms-animation: fadeIn 1s; /* Internet Explorer */
+      -o-animation: fadeIn 1s; /* Opera < 12.1 */
+      animation: fadeIn 1s;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -7,11 +7,17 @@ import { Items } from '../../../../material/items';
   styleUrls: ['./inventory-panel.component.scss']
 })
 export class InventoryPanelComponent implements OnInit {
-  @Input() items: Items[] = [Items.ELASTICS];
+  @Input() items: Items[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  getItemName(item: Items): string {
+    if (item === Items.ELASTICS) {
+      return 'Elastics';
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ClickActions } from '../click-actions';
+import { Sticker } from '../../material/sticker';
 
 @Component({
   selector: 'app-kitchen',
@@ -8,6 +9,9 @@ import { ClickActions } from '../click-actions';
 })
 export class KitchenComponent implements OnInit {
   @Output() openDialog: EventEmitter<ClickActions> = new EventEmitter<ClickActions>();
+  @Output() closeDialog: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addSticker: EventEmitter<Sticker> = new EventEmitter<Sticker>();
+
   showWindowActions: boolean = false;
   showCupboardActions: boolean = false;
   showKitchenActions: boolean = true;
@@ -19,6 +23,7 @@ export class KitchenComponent implements OnInit {
     '../../assets/01-kitchen-window-broken.jpg',
   ];
   imageUrl: string = this.urls[0];
+  Sticker = Sticker;
 
   constructor() {
     this.imageUrl = this.urls[0];
@@ -28,18 +33,21 @@ export class KitchenComponent implements OnInit {
   }
 
   showWindow(): void {
+    this.closeDialog.emit();
     this.imageUrl = this.urls[2];
     this.showKitchenActions = false;
     this.showWindowActions = true;
   }
 
   showCupboard(): void {
+    this.closeDialog.emit();
     this.imageUrl = this.urls[1];
     this.showKitchenActions = false;
     this.showCupboardActions = true;
   }
 
   showKitchen(): void {
+    this.closeDialog.emit();
     this.imageUrl = this.urls[0];
     this.showWindowActions = false;
     this.showCupboardActions = false;

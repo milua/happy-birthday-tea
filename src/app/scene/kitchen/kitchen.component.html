@@ -10,6 +10,8 @@
 </ng-container>
 <ng-container *ngIf="showCupboardActions">
   <app-back-button (click)="showKitchen()"></app-back-button>
+  <button class="button-tap" (click)="addSticker.emit(Sticker.TAP)"></button>
+
 </ng-container>
 <ng-container *ngIf="showWindowActions">
   <app-back-button (click)="showKitchen()"></app-back-button>
