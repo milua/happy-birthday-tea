@@ -13,12 +13,14 @@ export class KitchenComponent implements OnInit {
   @Output() addSticker: EventEmitter<Sticker> = new EventEmitter<Sticker>();
 
   showWindowActions: boolean = false;
+  foundMissingCup: boolean = false;
   showCupboardActions: boolean = false;
   showKitchenActions: boolean = true;
   ClickAction = ClickActions;
   private urls: string[] = [
     '../../assets/01-kitchen.jpg',
     '../../assets/01-kitchen-cupboard.jpg',
+    '../../assets/01-kitchen-cupboard-missing-cup.jpg',
     '../../assets/01-kitchen-window.jpg',
     '../../assets/01-kitchen-window-broken.jpg',
   ];
@@ -34,14 +36,18 @@ export class KitchenComponent implements OnInit {
 
   showWindow(): void {
     this.closeDialog.emit();
-    this.imageUrl = this.urls[2];
+    this.imageUrl = this.urls[3];
     this.showKitchenActions = false;
     this.showWindowActions = true;
   }
 
   showCupboard(): void {
     this.closeDialog.emit();
+    if(!this.foundMissingCup) {
     this.imageUrl = this.urls[1];
+    } else {
+      this.imageUrl = this.urls[2];
+    }
     this.showKitchenActions = false;
     this.showCupboardActions = true;
   }
@@ -52,5 +58,11 @@ export class KitchenComponent implements OnInit {
     this.showWindowActions = false;
     this.showCupboardActions = false;
     this.showKitchenActions = true;
+  }
+
+  onEmptySpotClicked(): void {
+    this.foundMissingCup = true;
+    this.imageUrl = this.urls[2];
+    this.openDialog.emit(this.ClickAction.KITCHEN_EMPTY_SPOT);
   }
 }

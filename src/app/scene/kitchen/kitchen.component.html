@@ -11,6 +11,8 @@
 <ng-container *ngIf="showCupboardActions">
   <app-back-button (click)="showKitchen()"></app-back-button>
   <button class="button-tap" (click)="addSticker.emit(Sticker.TAP)"></button>
+  <button class="button-cups" (click)="openDialog.emit(ClickAction.KITCHEN_CUPS)"></button>
+  <button class="button-empty-spot" (click)="onEmptySpotClicked()"></button>
 
 </ng-container>
 <ng-container *ngIf="showWindowActions">

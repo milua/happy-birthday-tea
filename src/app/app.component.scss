@@ -1,6 +1,16 @@
+@import "src/z-index";
+
 .dialog {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
+}
+
+app-sticker {
+  z-index: $stickersZIndex;
+}
+
+app-dialog {
+  z-index: $dialogZIndex;
 }

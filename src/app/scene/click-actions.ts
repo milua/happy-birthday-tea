@@ -1,4 +1,6 @@
 export enum ClickActions {
+  KITCHEN_EMPTY_SPOT,
+  KITCHEN_CUPS,
   KITCHEN_CORN,
   KITCHEN_POT,
   KITCHEN_ELASTICS,

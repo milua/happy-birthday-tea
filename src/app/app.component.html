@@ -1,6 +1,7 @@
 <app-notification></app-notification>
 <app-bagpack (bagpackChecked)="showInventory = !showInventory"></app-bagpack>
 <app-inventory-panel *ngIf="showInventory" [items]="inventory"></app-inventory-panel>
-<app-kitchen (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false"></app-kitchen>
+<app-kitchen (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></app-kitchen>
 <!--<app-logo *ngIf="showLogo"></app-logo>-->
 <app-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()">Test</app-dialog>
+<app-sticker [stickers]="foundStickers"></app-sticker>

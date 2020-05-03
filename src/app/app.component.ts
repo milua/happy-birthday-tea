@@ -4,6 +4,8 @@ import { TimerService } from './timer/services/timer.service';
 import { ClickActions } from './scene/click-actions';
 import { Items } from './material/items';
 import { NotificationService } from './scene/components/notification/services/notification.service';
+import { Clues } from './material/clues';
+import { Sticker } from './material/sticker';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,15 @@ import { NotificationService } from './scene/components/notification/services/no
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  dialogue: DialogueText;
+  dialogue: DialogueText[];
   isDialogOpen: boolean = true;
   showLogo: boolean = false;
   showKitchen: boolean = false;
-  inventory: Items[] = [];
   showInventory: boolean = false;
+
+  inventory: Items[] = [];
+  foundClues: Clues[] = [];
+  foundStickers: Sticker[] = [];
 
   constructor(private timerService: TimerService, private notificationService: NotificationService) {
     this.timerService.timeRunOut.subscribe(() => this.playNextScene());
@@ -37,6 +42,19 @@ export class AppComponent implements OnInit {
 
   openKitchenDialog($event: ClickActions): void {
     switch ($event) {
+      case ClickActions.KITCHEN_EMPTY_SPOT:
+        if (!this.foundClues.includes(Clues.MISSING_CUP)) {
+          this.foundClues.push(Clues.MISSING_CUP);
+          this.dialogue = [DialogueText.CUPBOARD_EMPT_SPOT[0]];
+        } else {
+          this.dialogue = [DialogueText.CUPBOARD_EMPT_SPOT[1]];
+        }
+        this.isDialogOpen = true;
+        break;
+      case ClickActions.KITCHEN_CUPS:
+        this.dialogue = [DialogueText.CUPBOARD_CUPS[this.getRandomTextIndex(DialogueText.CUPBOARD_CUPS.length)]];
+        this.isDialogOpen = true;
+        break;
       case ClickActions.KITCHEN_CORN:
         this.dialogue = [DialogueText.KITCHEN_CORN[this.getRandomTextIndex(DialogueText.KITCHEN_CORN.length)]];
         this.isDialogOpen = true;
@@ -63,15 +81,28 @@ export class AppComponent implements OnInit {
         this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
         this.isDialogOpen = true;
         break;
+
     }
   }
 
-  private playNextScene() {
+  onAddSticker(sticker: Sticker) {
+    if (!this.foundStickers.includes(sticker)) {
+      this.foundStickers.push(sticker);
+      this.notificationService.showNotification('You found TAP!')
+      this.dialogue = [DialogueText.STICKER_TAP[0]];
+      this.isDialogOpen = true;
+    } else {
+      this.dialogue = [DialogueText.STICKER_TAP[1]];
+      this.isDialogOpen = true;
+    }
+  }
+
+  private playNextScene(): void {
     this.showLogo = false;
     this.showKitchen = true;
   }
 
-  private getRandomTextIndex(textLength: number) {
+  private getRandomTextIndex(textLength: number): number {
     return Math.round(Math.random() * (textLength - 1));
   }
 }

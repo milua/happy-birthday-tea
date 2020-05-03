@@ -11,5 +11,8 @@ export class DialogueText {
   static KITCHEN_COOKIES: string[] = ['I shouldn\'t but...*crunch* *crunch*', 'Cookies!'];
   static KITCHEN_DOOR: string[] = ['Should I go outside?'];
 
+  static CUPBOARD_CUPS: string[] = ['Just some regular cups', 'I think, the illustrator was too lazy to draw more kinds of cups.', 'Very plain cups.'];
+  static CUPBOARD_EMPT_SPOT: string[] = ['Oh no! My favority tea cup is missing!', 'It\'s missing!'];
 
+static STICKER_TAP: string[] = ['...What\'s this? It looks kinda cute.', '...'];
 }

@@ -1,3 +1,5 @@
+@import "src/z-index";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
   position: absolute;
   top: 0vw;
   right: 8.5vw;
-  z-index: 9;
+  z-index: $inventoryZIndex;
 }
 h1 {
   align-self: center;

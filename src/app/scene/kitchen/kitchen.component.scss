@@ -8,7 +8,7 @@
 
   button {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
   }
 
   .button-cupboard {
@@ -56,5 +56,23 @@
     top: 20vw;
     width: 2.5vw;
     height: 2.5vw;
+  }
+
+  .button-tap {right: 14vw;
+    top: 37vw;
+  }
+
+  .button-cups {
+    top: 14vw;
+    left: 11vw;
+    width: 25vw;
+    height: 32vw;
+  }
+
+  .button-empty-spot {
+    top: 39vw;
+    left: 40vw;
+    width: 13vw;
+    height: 6vw;
   }
 }
