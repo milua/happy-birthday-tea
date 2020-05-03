@@ -1,10 +1,17 @@
 <img src="{{imageUrl}}">
-<ng-container>
-  <button class="button-cupboard" (click)="openDialog.emit(ClickAction.KITCHEN_DOOR)"></button>
-  <button class="button-window" (click)="openDialog.emit(ClickAction.KITCHEN_WINDOW)"></button>
+<ng-container *ngIf="showKitchenActions">
+  <button class="button-cupboard" (click)="showCupboard()"></button>
+  <button class="button-window" (click)="showWindow()"></button>
   <button class="button-corn" (click)="openDialog.emit(ClickAction.KITCHEN_CORN)"></button>
   <button class="button-pot" (click)="openDialog.emit(ClickAction.KITCHEN_POT)"></button>
   <button class="button-elastics" (click)="openDialog.emit(ClickAction.KITCHEN_ELASTICS)"></button>
   <button class="button-cookies" (click)="openDialog.emit(ClickAction.KITCHEN_COOKIES)"></button>
   <button class="button-door" (click)="openDialog.emit(ClickAction.KITCHEN_DOOR)"></button>
+</ng-container>
+<ng-container *ngIf="showCupboardActions">
+  <app-back-button (click)="showKitchen()"></app-back-button>
+</ng-container>
+<ng-container *ngIf="showWindowActions">
+  <app-back-button (click)="showKitchen()"></app-back-button>
+
 </ng-container>

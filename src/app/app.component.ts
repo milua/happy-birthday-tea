@@ -3,6 +3,7 @@ import { DialogueText } from './material/dialogue-text';
 import { TimerService } from './timer/services/timer.service';
 import { ClickActions } from './scene/click-actions';
 import { Items } from './material/items';
+import { NotificationService } from './scene/components/notification/services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   showKitchen: boolean = false;
   inventory: Items[] = [];
 
-  constructor(private timerService: TimerService) {
+  constructor(private timerService: TimerService, private notificationService: NotificationService) {
     this.timerService.timeRunOut.subscribe(() => this.playNextScene());
   }
 
@@ -35,10 +36,6 @@ export class AppComponent implements OnInit {
 
   openKitchenDialog($event: ClickActions): void {
     switch ($event) {
-      case ClickActions.KITCHEN_CUPBOARD:
-        break;
-      case ClickActions.KITCHEN_WINDOW:
-        break;
       case ClickActions.KITCHEN_CORN:
         this.dialogue = [DialogueText.KITCHEN_CORN[this.getRandomTextIndex(DialogueText.KITCHEN_CORN.length)]];
         this.isDialogOpen = true;
@@ -52,8 +49,8 @@ export class AppComponent implements OnInit {
           this.dialogue = [DialogueText.KITCHEN_ELASTICS[1]];
         } else {
           this.dialogue = [DialogueText.KITCHEN_ELASTICS[0]];
+          this.notificationService.showNotification('You picked up some elastics.')
           this.inventory.push(Items.ELASTICS);
-          // TODO Notification
         }
         this.isDialogOpen = true;
         break;
@@ -62,6 +59,8 @@ export class AppComponent implements OnInit {
         this.isDialogOpen = true;
         break;
       case ClickActions.KITCHEN_DOOR:
+        this.dialogue = [DialogueText.KITCHEN_DOOR[0]];
+        this.isDialogOpen = true;
         break;
     }
   }

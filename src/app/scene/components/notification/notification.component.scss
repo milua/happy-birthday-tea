@@ -1,0 +1,31 @@
+.notification {
+  background-color: #000000b8;
+  height: 25px;
+  padding: 1rem 1rem 0.25rem;
+  color: white;
+  width: 25vw;
+  position: absolute;
+  top: 1vw;
+  text-align: center;
+  right: 35vw;
+  font-size: 12px;
+  border-radius: 12px;
+  opacity: 0;
+  -webkit-animation: fadeInOut 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeInOut 2s; /* Firefox < 16 */
+  -ms-animation: fadeInOut 2s; /* Internet Explorer */
+  -o-animation: fadeInOut 2s; /* Opera < 12.1 */
+  animation: fadeInOut 2s;
+}
+
+@keyframes fadeInOut {
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
