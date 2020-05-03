@@ -5,4 +5,4 @@
   <button [disabled]="isFirstPage" (click)="onPreviousClicked()">Previous</button>
   <button [disabled]="!isNextEnabled" (click)="onNextClicked()">Next</button>
 </ng-container>
-<button *ngIf="isSingleDialogueText" (click)="dialogEnded.emit()"></button>
+<button *ngIf="isSingleDialogueText" (click)="dialogEnded.emit()">Close</button>
