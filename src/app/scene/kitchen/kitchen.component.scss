@@ -1,0 +1,56 @@
+img {
+  width: 100%;
+  max-height: 99vh;
+}
+
+button {
+  position: absolute;
+  opacity: 0;
+}
+
+.button-cupboard {
+  width: 18vw;
+  height: 24vw;
+  top: 6vw;
+  right: 18vw;
+}
+
+.button-corn {
+  top: 37vw;
+  right: 34.75vw;
+  width: 4vw;
+  height: 4.75vw;
+}
+
+.button-window {
+  top: 2vw;
+  left: 42vw;
+  width: 17vw;
+  height: 24vw;
+}
+
+.button-pot {
+  left: 17vw;
+  top: 24vw;
+  width: 4vw;
+  height: 4vw;
+}
+
+.button-door {
+  right: 0;
+  top: 4vw;
+  width: 14vw;
+  height: 45vw;
+}
+
+.button-elastics {
+  top: 42vw;
+  left: 49vw;
+}
+
+.button-cookies {
+  height: 6vw;
+  top: 32vw;
+  left: 55vw;
+  width: 5vw;
+}

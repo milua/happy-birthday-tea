@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SceneComponent } from './main/scene.component';
+import { KitchenComponent } from './kitchen/kitchen.component';
 
 
 
 @NgModule({
-  declarations: [SceneComponent],
-  exports: [
-    SceneComponent
-  ],
+  declarations: [KitchenComponent],
+    exports: [
+        KitchenComponent,
+    ],
   imports: [
     CommonModule
   ]

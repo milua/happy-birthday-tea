@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogueText } from './material/dialogue-text';
+import { TimerService } from './timer/services/timer.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'app';
-  private allDialogues: DialogueText[];
   dialogue: DialogueText;
   isDialogOpen: boolean = true;
   showLogo: boolean = false;
+  showKitchen: boolean = false;
+  private allDialogues: DialogueText[];
+
+  constructor(private timerService: TimerService) {
+    this.timerService.timeRunOut.subscribe(() => this.playNextScene());
+  }
 
   ngOnInit(): void {
     this.allDialogues = [
@@ -21,8 +27,16 @@ export class AppComponent implements OnInit{
   }
 
   onDialogEnded(): void {
-    // TODO play next scene
     this.isDialogOpen = false;
-    this.showLogo = true;
+    if(this.dialogue === DialogueText.INTRO) {
+      this.showLogo = true;
+      this.timerService.timeLeft = 10;
+      this.timerService.startTimer();
+    }
+  }
+
+  private playNextScene() {
+    this.showLogo = false;
+    this.showKitchen = true;
   }
 }

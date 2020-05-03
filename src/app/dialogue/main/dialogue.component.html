@@ -1,7 +1,8 @@
 <div class="container">
   {{text}}
 </div>
-<div>
+<ng-container *ngIf="!isSingleDialogueText">
   <button [disabled]="isFirstPage" (click)="onPreviousClicked()">Previous</button>
   <button [disabled]="!isNextEnabled" (click)="onNextClicked()">Next</button>
-</div>
+</ng-container>
+<button *ngIf="isSingleDialogueText" (click)="dialogEnded.emit()"></button>

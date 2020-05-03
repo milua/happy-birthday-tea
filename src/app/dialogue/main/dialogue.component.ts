@@ -40,4 +40,8 @@ export class DialogueComponent {
   get isNextEnabled(): boolean {
     return this.currentTextIndex < this.dialog.length;
   }
+
+  get isSingleDialogueText(): boolean {
+    return this.dialog.length === 1;
+  }
 }
