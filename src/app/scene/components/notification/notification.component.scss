@@ -3,19 +3,19 @@
   height: 25px;
   padding: 1rem 1rem 0.25rem;
   color: white;
-  width: 25vw;
+  width: 45vw;
   position: absolute;
-  top: 1vw;
+  bottom: 21vw;
   text-align: center;
-  right: 35vw;
+  right: 25vw;
   font-size: 12px;
   border-radius: 12px;
   opacity: 0;
-  -webkit-animation: fadeInOut 4s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadeInOut 4s; /* Firefox < 16 */
-  -ms-animation: fadeInOut 4s; /* Internet Explorer */
-  -o-animation: fadeInOut 4s; /* Opera < 12.1 */
-  animation: fadeInOut 4s;
+  -webkit-animation: fadeInOut 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeInOut 3s; /* Firefox < 16 */
+  -ms-animation: fadeInOut 3s; /* Internet Explorer */
+  -o-animation: fadeInOut 3s; /* Opera < 12.1 */
+  animation: fadeInOut 3s;
 }
 
 @keyframes fadeInOut {

@@ -1,8 +1,8 @@
 <app-notification></app-notification>
-<app-bagpack *ngIf="showKitchen" (bagpackChecked)="showInventory = !showInventory"></app-bagpack>
+<app-bagpack (bagpackChecked)="showInventory = !showInventory"></app-bagpack>
 <app-inventory-panel *ngIf="showInventory" [items]="inventory"></app-inventory-panel>
-<app-kitchen *ngIf="showKitchen" (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></app-kitchen>
-<app-neighbor *ngIf="showNeighbor"></app-neighbor>
+<app-kitchen (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></app-kitchen>
+<app-black-overlay *ngIf="showNeighbor" [foundStickers]="foundStickers.length"></app-black-overlay>
 <app-logo *ngIf="showLogo"></app-logo>
 <app-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()" [closeButtonText]="lastScene">Test</app-dialog>
 <app-sticker [stickers]="foundStickers"></app-sticker>

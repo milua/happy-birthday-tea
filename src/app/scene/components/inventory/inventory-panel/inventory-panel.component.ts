@@ -18,6 +18,8 @@ export class InventoryPanelComponent implements OnInit {
   getItemName(item: Items): string {
     if (item === Items.ELASTICS) {
       return 'Elastics';
+    } if (item === Items.SNOWBALL) {
+      return 'Snowball';
     }
   }
 }

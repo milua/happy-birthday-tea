@@ -12,13 +12,14 @@ import { BlackOverlayComponent } from './components/black-overlay/black-overlay.
 
 @NgModule({
   declarations: [KitchenComponent, BackButtonComponent, NotificationComponent, BagpackButtonComponent, InventoryPanelComponent, NeighborComponent, BlackOverlayComponent],
-  exports: [
-    KitchenComponent,
-    NotificationComponent,
-    BagpackButtonComponent,
-    InventoryPanelComponent,
-    NeighborComponent,
-  ],
+    exports: [
+        KitchenComponent,
+        NotificationComponent,
+        BagpackButtonComponent,
+        InventoryPanelComponent,
+        NeighborComponent,
+        BlackOverlayComponent,
+    ],
   imports: [
     CommonModule
   ]

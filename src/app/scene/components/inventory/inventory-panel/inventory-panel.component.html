@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Inside your bagpack</h1>
-  <div class="container-items" *ngFor="let item of items">
+  <div class="container-items">
+    <ng-container *ngFor="let item of items">
       <div class="item">{{getItemName(item)}}</div>
+    </ng-container>
   </div>
 </div>

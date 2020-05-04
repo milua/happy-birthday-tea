@@ -8,7 +8,7 @@
 
   button {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
   }
 
   .button-cupboard {
@@ -86,5 +86,38 @@
     right: 16vw;
     width: 25vw;
     height: 35vw;
+  }
+
+  .button-plasters {
+    top: 34vw;
+    left: 42vw;
+    width: 4vw;
+    height: 1.5vw;
+  }
+
+  .button-ball {
+    top: 31.5vw;
+    left: 54vw;
+    height: 2vw;
+  }
+
+  .button-carpet {
+    top: 40vw;
+    left: 8.5vw;
+    width: 22vw;
+    height: 4vw;}
+
+  .button-oven {
+    top: 27vw;
+    left: 18vw;
+    width: 12vw;
+    height: 10vw;
+  }
+
+  .button-board {
+    top: 0;
+    left: 21vw;
+    width: 9vw;
+    height: 15vw;
   }
 }

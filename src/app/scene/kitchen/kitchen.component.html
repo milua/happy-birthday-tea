@@ -7,6 +7,12 @@
   <button class="button-elastics" (click)="openDialog.emit(ClickAction.KITCHEN_ELASTICS)"></button>
   <button class="button-cookies" (click)="openDialog.emit(ClickAction.KITCHEN_COOKIES)"></button>
   <button class="button-door" (click)="openDialog.emit(ClickAction.KITCHEN_DOOR)"></button>
+
+  <button class="button-board" (click)="openDialog.emit(ClickAction.KITCHEN_BOARD)"></button>
+  <button class="button-oven" (click)="openDialog.emit(ClickAction.KITCHEN_OVEN)"></button>
+  <button class="button-carpet" (click)="openDialog.emit(ClickAction.KITCHEN_CARPET)"></button>
+  <button class="button-ball" (click)="openDialog.emit(ClickAction.KITCHEN_BALL)"></button>
+  <button class="button-plasters" (click)="openDialog.emit(ClickAction.KITCHEN_PLASTERS)"></button>
 </ng-container>
 <ng-container *ngIf="showCupboardActions">
   <app-back-button (click)="showKitchen()"></app-back-button>
