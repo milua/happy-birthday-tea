@@ -19,12 +19,13 @@ export class AppComponent implements OnInit {
   showLogo: boolean = false;
   showKitchen: boolean = false;
   showInventory: boolean = false;
-  showNeighbor: boolean = false;
+  showBlackOverlay: boolean = false;
 
   inventory: Items[] = [];
   foundClues: Clues[] = [];
   foundStickers: Sticker[] = [];
   lastScene: string | undefined = undefined;
+  showLastScene: boolean = false;
 
   constructor(private timerService: TimerService, private notificationService: NotificationService) {
     this.timerService.timeRunOut.subscribe(() => this.playNextScene(Scene.KITCHEN));
@@ -158,7 +159,7 @@ export class AppComponent implements OnInit {
       this.showKitchen = true;
     } else if (scene === Scene.NEIGHBOR) {
       this.showKitchen = false;
-      this.showNeighbor = true;
+      this.showBlackOverlay = true;
     }
   }
 

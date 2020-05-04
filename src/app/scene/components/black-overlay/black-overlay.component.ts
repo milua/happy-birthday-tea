@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-black-overlay',
@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BlackOverlayComponent implements OnInit {
   @Input()foundStickers: number;
   @Input()foundItems: number;
+  @Output()lastScene: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 

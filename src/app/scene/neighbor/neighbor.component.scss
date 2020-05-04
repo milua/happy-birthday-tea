@@ -2,17 +2,23 @@
 :host {
   display: flex;
 
+  h1 {
+    position: absolute;
+    color: white;
+    top: 0vw;
+    left: 50vw;
+  }
   img {
     width: 83vw;
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
 
-    -webkit-animation: fadeIn 3s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadeIn 3s; /* Firefox < 16 */
-    -ms-animation: fadeIn 3s; /* Internet Explorer */
-    -o-animation: fadeIn 3s; /* Opera < 12.1 */
-    animation: fadeIn 3s;
+    // -webkit-animation: fadeIn 3s; /* Safari, Chrome and Opera > 12.1 */
+    // -moz-animation: fadeIn 3s; /* Firefox < 16 */
+    // -ms-animation: fadeIn 3s; /* Internet Explorer */
+    // -o-animation: fadeIn 3s; /* Opera < 12.1 */
+    // animation: fadeIn 3s;
   }
 }
 

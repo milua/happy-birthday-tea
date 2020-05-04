@@ -10,7 +10,7 @@ export class DialogueText {
   static KITCHEN_BALL: string []=['It\'s a snowball!', 'Isn\'t it too warm for this snowball?', 'This snowball should probably melt in the sun...', 'The illustrator is still sorry for putting a snowball in your bagpack.'];
   static KITCHEN_BOARD: string []=['Some plates and bowls...'];
   static KITCHEN_GARBAGE: string []=['It\'s trash.', 'It\'s pretty much empty.'];
-  static KITCHEN_CALENDER: string []=['Today is May the 5th.', 'It\'s Ti\'s bithday today!', 'Happy 28th birhtday!'];
+  static KITCHEN_CALENDER: string []=['Today is May the 5th.', 'It\'s Ti\'s birthday today!', 'Happy 28th birthday!'];
   static KITCHEN_CORN: string[] = ['This is just some corn.', '...', 'I don\'t need this.'];
   static KITCHEN_POT: string[] = ['A pot with water.', 'Not very interesting...'];
   static KITCHEN_ELASTICS: string[] = ['Always good to have some elastics with you.', 'I already have enough of them.'];
@@ -18,7 +18,7 @@ export class DialogueText {
   static KITCHEN_DOOR: string[] = ['I need to find out, what\'s going on, first.', 'Ok, let\'s catch the cup crasher!'];
 
   static CUPBOARD_CUPS: string[] = ['Just some regular cups', 'I think, the illustrator was too lazy to draw more kinds of cups.', 'Very plain cups.'];
-  static CUPBOARD_EMPT_SPOT: string[] = ['Oh no! My favority tea cup is missing!', 'It\'s missing!'];
+  static CUPBOARD_EMPT_SPOT: string[] = ['Oh no! My favorite tea cup is missing!', 'It\'s missing!'];
 
   static STICKER_TAP: string[] = ['...What\'s this? It looks kinda cute.', '...'];
   static STICKER_SAK: string[] = ['...There\'s a ghost shaped like thing...with an umbrella.', 'The sink is still dripping.'];

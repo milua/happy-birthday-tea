@@ -2,7 +2,8 @@
 <app-bagpack *ngIf="showKitchen" (bagpackChecked)="showInventory = !showInventory"></app-bagpack>
 <app-inventory-panel *ngIf="showInventory" [items]="inventory"></app-inventory-panel>
 <app-kitchen *ngIf="showKitchen" (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></app-kitchen>
-<app-black-overlay *ngIf="showNeighbor" [foundStickers]="foundStickers.length" [foundItems]="inventory.length"></app-black-overlay>
+<app-black-overlay *ngIf="showBlackOverlay && !showLastScene" [foundStickers]="foundStickers.length" [foundItems]="inventory.length" (lastScene)="showLastScene = true"></app-black-overlay>
+<app-neighbor *ngIf="showLastScene"></app-neighbor>
 <app-logo *ngIf="showLogo"></app-logo>
 <app-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()" [closeButtonText]="lastScene">Test</app-dialog>
 <app-sticker [stickers]="foundStickers"></app-sticker>
