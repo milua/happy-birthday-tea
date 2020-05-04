@@ -22,4 +22,12 @@ export class InventoryPanelComponent implements OnInit {
       return 'Snowball';
     }
   }
+
+  getItemTitle(item: Items) {
+    if (item === Items.ELASTICS) {
+      return 'Always good to have some elastics with you!';
+    } if (item === Items.SNOWBALL) {
+      return 'A never melting snowball.';
+    }
+  }
 }

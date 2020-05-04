@@ -13,6 +13,9 @@
   <button class="button-carpet" (click)="openDialog.emit(ClickAction.KITCHEN_CARPET)"></button>
   <button class="button-ball" (click)="openDialog.emit(ClickAction.KITCHEN_BALL)"></button>
   <button class="button-plasters" (click)="openDialog.emit(ClickAction.KITCHEN_PLASTERS)"></button>
+  <button class="button-calender" (click)="openDialog.emit(ClickAction.KITCHEN_CALENDER)"></button>
+  <button class="button-garbage" (click)="openDialog.emit(ClickAction.KITCHEN_GARBAGE)"></button>
+  <button class="button-sink" (click)="addSticker.emit(Sticker.SAK)"></button>
 </ng-container>
 <ng-container *ngIf="showCupboardActions">
   <app-back-button (click)="showKitchen()"></app-back-button>

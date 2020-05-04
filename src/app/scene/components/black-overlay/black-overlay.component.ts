@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BlackOverlayComponent implements OnInit {
   @Input()foundStickers: number;
+  @Input()foundItems: number;
 
   constructor() { }
 

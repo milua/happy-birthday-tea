@@ -85,6 +85,12 @@ export class AppComponent implements OnInit {
       case ClickActions.KITCHEN_PLASTERS:
         this.dialogue = [DialogueText.KITCHEN_PLASTERS[this.getRandomTextIndex(DialogueText.KITCHEN_PLASTERS.length)]];
         break;
+      case ClickActions.KITCHEN_GARBAGE:
+        this.dialogue = [DialogueText.KITCHEN_GARBAGE[this.getRandomTextIndex(DialogueText.KITCHEN_GARBAGE.length)]];
+        break;
+      case ClickActions.KITCHEN_CALENDER:
+        this.dialogue = [DialogueText.KITCHEN_CALENDER[this.getRandomTextIndex(DialogueText.KITCHEN_CALENDER.length)]];
+        break;
       case ClickActions.KITCHEN_OVEN:
         this.dialogue = [DialogueText.KITCHEN_OVEN[this.getRandomTextIndex(DialogueText.KITCHEN_OVEN.length)]];
         break;
@@ -123,7 +129,8 @@ export class AppComponent implements OnInit {
   }
 
   onAddSticker(sticker: Sticker) {
-    if (!this.foundStickers.includes(sticker)) {
+     if(sticker === Sticker.TAP) {
+       if (!this.foundStickers.includes(sticker)) {
       this.foundStickers.push(sticker);
       this.notificationService.showNotification('You found TAP!')
       this.dialogue = [DialogueText.STICKER_TAP[0]];
@@ -132,6 +139,17 @@ export class AppComponent implements OnInit {
       this.dialogue = [DialogueText.STICKER_TAP[1]];
       this.isDialogOpen = true;
     }
+     } else if(sticker === Sticker.SAK) {
+       if (!this.foundStickers.includes(sticker)) {
+         this.foundStickers.push(sticker);
+         this.notificationService.showNotification('You found SAK!')
+         this.dialogue = [DialogueText.STICKER_SAK[0]];
+         this.isDialogOpen = true;
+       } else {
+         this.dialogue = [DialogueText.STICKER_SAK[1]];
+         this.isDialogOpen = true;
+       }
+     }
   }
 
   private playNextScene(scene: Scene): void {

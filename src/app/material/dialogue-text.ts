@@ -9,6 +9,8 @@ export class DialogueText {
   static KITCHEN_OVEN: string []=['There are Ti\'s special brownies in the oven! Yummy!', 'There are cookies inside...what is a...\'Yunho Cookie\'?'];
   static KITCHEN_BALL: string []=['It\'s a snowball!', 'Isn\'t it too warm for this snowball?', 'This snowball should probably melt in the sun...', 'The illustrator is still sorry for putting a snowball in your bagpack.'];
   static KITCHEN_BOARD: string []=['Some plates and bowls...'];
+  static KITCHEN_GARBAGE: string []=['It\'s trash.', 'It\'s pretty much empty.'];
+  static KITCHEN_CALENDER: string []=['Today is May the 5th.', 'It\'s Ti\'s bithday today!', 'Happy 28th birhtday!'];
   static KITCHEN_CORN: string[] = ['This is just some corn.', '...', 'I don\'t need this.'];
   static KITCHEN_POT: string[] = ['A pot with water.', 'Not very interesting...'];
   static KITCHEN_ELASTICS: string[] = ['Always good to have some elastics with you.', 'I already have enough of them.'];
@@ -19,6 +21,7 @@ export class DialogueText {
   static CUPBOARD_EMPT_SPOT: string[] = ['Oh no! My favority tea cup is missing!', 'It\'s missing!'];
 
   static STICKER_TAP: string[] = ['...What\'s this? It looks kinda cute.', '...'];
+  static STICKER_SAK: string[] = ['...There\'s a ghost shaped like thing...with an umbrella.', 'The sink is still dripping.'];
 
   static KITCHEN_RIGHT_WINDOW: string[] = ['I opened the window.', 'It\'s pretty warm outside.', 'What a beautiful day!'];
   static KITCHEN_LEFT_WINDOW: string[] = ['It\'s broken!', 'I wonder who broke it...'];

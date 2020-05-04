@@ -17,6 +17,8 @@ export class StickerComponent implements OnInit {
   getStickerUrl(sticker: Sticker): string {
     if(sticker === Sticker.TAP) {
       return '../assets/sticker/tap.png';
+    } else if(sticker === Sticker.SAK) {
+      return '../assets/sticker/sak.png';
     }
   }
 }
