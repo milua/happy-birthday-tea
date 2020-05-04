@@ -1,0 +1,35 @@
+@import "src/z-index";
+
+:host {
+  width: 83vw;
+  height: 100vh;
+
+  position: absolute;
+  left: 8.5vw;
+  z-index: $blackOverlayZIndex;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  background-color: black;
+  -webkit-animation: fadeOut 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeOut 3s; /* Firefox < 16 */
+  -ms-animation: fadeOut 3s; /* Internet Explorer */
+  -o-animation: fadeOut 3s; /* Opera < 12.1 */
+  animation: fadeOut 3s;
+}
+
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeighborComponent implements OnInit {
 
+  private urls: string[] = [
+    '../../assets/02-neighbor.jpg'
+  ];
+
+  imageUrl: string = this.urls[0];
   constructor() { }
 
   ngOnInit(): void {

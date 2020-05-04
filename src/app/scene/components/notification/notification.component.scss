@@ -11,11 +11,11 @@
   font-size: 12px;
   border-radius: 12px;
   opacity: 0;
-  -webkit-animation: fadeInOut 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadeInOut 2s; /* Firefox < 16 */
-  -ms-animation: fadeInOut 2s; /* Internet Explorer */
-  -o-animation: fadeInOut 2s; /* Opera < 12.1 */
-  animation: fadeInOut 2s;
+  -webkit-animation: fadeInOut 4s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeInOut 4s; /* Firefox < 16 */
+  -ms-animation: fadeInOut 4s; /* Internet Explorer */
+  -o-animation: fadeInOut 4s; /* Opera < 12.1 */
+  animation: fadeInOut 4s;
 }
 
 @keyframes fadeInOut {

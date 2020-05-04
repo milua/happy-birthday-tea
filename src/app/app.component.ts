@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   dialogue: DialogueText[];
   isDialogOpen: boolean = true;
   showLogo: boolean = false;
-  showKitchen: boolean = false;
+  showKitchen: boolean = true;
   showInventory: boolean = false;
   showNeighbor: boolean = false;
 
