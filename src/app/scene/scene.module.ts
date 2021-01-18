@@ -7,21 +7,30 @@ import { BagpackButtonComponent } from './components/inventory/bagpack-button/ba
 import { InventoryPanelComponent } from './components/inventory/inventory-panel/inventory-panel.component';
 import { NeighborComponent } from './neighbor/neighbor.component';
 import { BlackOverlayComponent } from './components/black-overlay/black-overlay.component';
+import { MainMenuComponent } from './main-menu/main-menu/main-menu.component';
 
 
 
 @NgModule({
-  declarations: [KitchenComponent, BackButtonComponent, NotificationComponent, BagpackButtonComponent, InventoryPanelComponent, NeighborComponent, BlackOverlayComponent],
-    exports: [
-        KitchenComponent,
-        NotificationComponent,
-        BagpackButtonComponent,
-        InventoryPanelComponent,
-        NeighborComponent,
-        BlackOverlayComponent,
-    ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [
+    KitchenComponent,
+    BackButtonComponent,
+    NotificationComponent,
+    BagpackButtonComponent,
+    InventoryPanelComponent,
+    NeighborComponent,
+    BlackOverlayComponent,
+    MainMenuComponent,
+  ],
+  exports: [
+    KitchenComponent,
+    NotificationComponent,
+    BagpackButtonComponent,
+    InventoryPanelComponent,
+    NeighborComponent,
+    BlackOverlayComponent,
+    MainMenuComponent,
+  ],
+  imports: [CommonModule],
 })
-export class SceneModule { }
+export class SceneModule {}

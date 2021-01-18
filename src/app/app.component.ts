@@ -9,26 +9,31 @@ import { Sticker } from './material/sticker';
 import { Scene } from './material/scene';
 
 @Component({
-  selector: 'app-root',
+  selector: 'tea-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   dialogue: DialogueText[];
-  isDialogOpen: boolean = true;
-  showLogo: boolean = false;
-  showKitchen: boolean = false;
-  showInventory: boolean = false;
-  showBlackOverlay: boolean = false;
+  isDialogOpen = true;
+  showLogo = false;
+  showKitchen = false;
+  showInventory = false;
+  showBlackOverlay = false;
 
   inventory: Items[] = [];
   foundClues: Clues[] = [];
   foundStickers: Sticker[] = [];
   lastScene: string | undefined = undefined;
-  showLastScene: boolean = false;
+  showLastScene = false;
 
-  constructor(private timerService: TimerService, private notificationService: NotificationService) {
-    this.timerService.timeRunOut.subscribe(() => this.playNextScene(Scene.KITCHEN));
+  constructor(
+    private timerService: TimerService,
+    private notificationService: NotificationService
+  ) {
+    this.timerService.timeRunOut.subscribe(() =>
+      this.playNextScene(Scene.KITCHEN)
+    );
   }
 
   ngOnInit(): void {
@@ -42,7 +47,7 @@ export class AppComponent implements OnInit {
       this.showLogo = true;
       this.timerService.timeLeft = 10;
       this.timerService.startTimer();
-    } else if(this.dialogue.includes('Ok, let\'s catch the cup crasher!')) {
+    } else if (this.dialogue.includes('Ok, let\'s catch the cup crasher!')) {
       console.log('play');
 
       this.playNextScene(Scene.NEIGHBOR);
@@ -60,46 +65,91 @@ export class AppComponent implements OnInit {
         }
         break;
       case ClickActions.KITCHEN_CUPS:
-        this.dialogue = [DialogueText.CUPBOARD_CUPS[this.getRandomTextIndex(DialogueText.CUPBOARD_CUPS.length)]];
+        this.dialogue = [
+          DialogueText.CUPBOARD_CUPS[
+            this.getRandomTextIndex(DialogueText.CUPBOARD_CUPS.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_CORN:
-        this.dialogue = [DialogueText.KITCHEN_CORN[this.getRandomTextIndex(DialogueText.KITCHEN_CORN.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_CORN[
+            this.getRandomTextIndex(DialogueText.KITCHEN_CORN.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_POT:
-        this.dialogue = [DialogueText.KITCHEN_POT[this.getRandomTextIndex(DialogueText.KITCHEN_POT.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_POT[
+            this.getRandomTextIndex(DialogueText.KITCHEN_POT.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_ELASTICS:
         if (this.inventory.includes(Items.ELASTICS)) {
           this.dialogue = [DialogueText.KITCHEN_ELASTICS[1]];
         } else {
           this.dialogue = [DialogueText.KITCHEN_ELASTICS[0]];
-          this.notificationService.showNotification('You picked up some elastics.')
+          this.notificationService.showNotification(
+            'You picked up some elastics.'
+          );
           this.inventory.push(Items.ELASTICS);
         }
         break;
       case ClickActions.KITCHEN_COOKIES:
-        this.dialogue = [DialogueText.KITCHEN_COOKIES[this.getRandomTextIndex(DialogueText.KITCHEN_COOKIES.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_COOKIES[
+            this.getRandomTextIndex(DialogueText.KITCHEN_COOKIES.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_CARPET:
-        this.dialogue = [DialogueText.KITCHEN_CARPET[this.getRandomTextIndex(DialogueText.KITCHEN_CARPET.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_CARPET[
+            this.getRandomTextIndex(DialogueText.KITCHEN_CARPET.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_PLASTERS:
-        this.dialogue = [DialogueText.KITCHEN_PLASTERS[this.getRandomTextIndex(DialogueText.KITCHEN_PLASTERS.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_PLASTERS[
+            this.getRandomTextIndex(DialogueText.KITCHEN_PLASTERS.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_GARBAGE:
-        this.dialogue = [DialogueText.KITCHEN_GARBAGE[this.getRandomTextIndex(DialogueText.KITCHEN_GARBAGE.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_GARBAGE[
+            this.getRandomTextIndex(DialogueText.KITCHEN_GARBAGE.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_CALENDER:
-        this.dialogue = [DialogueText.KITCHEN_CALENDER[this.getRandomTextIndex(DialogueText.KITCHEN_CALENDER.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_CALENDER[
+            this.getRandomTextIndex(DialogueText.KITCHEN_CALENDER.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_OVEN:
-        this.dialogue = [DialogueText.KITCHEN_OVEN[this.getRandomTextIndex(DialogueText.KITCHEN_OVEN.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_OVEN[
+            this.getRandomTextIndex(DialogueText.KITCHEN_OVEN.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_BALL:
-        const randomIndex = this.getRandomTextIndex(DialogueText.KITCHEN_BALL.length);
-        if(randomIndex === DialogueText.KITCHEN_BALL.length - 1 && !this.inventory.includes(Items.SNOWBALL)){
+        const randomIndex = this.getRandomTextIndex(
+          DialogueText.KITCHEN_BALL.length
+        );
+        if (
+          randomIndex === DialogueText.KITCHEN_BALL.length - 1 &&
+          !this.inventory.includes(Items.SNOWBALL)
+        ) {
           this.inventory.push(Items.SNOWBALL);
-          this.notificationService.showNotification('A non-melting snowball was added to your bagpack.');
+          this.notificationService.showNotification(
+            'A non-melting snowball was added to your bagpack.'
+          );
         }
         this.dialogue = [DialogueText.KITCHEN_BALL[randomIndex]];
         break;
@@ -107,14 +157,18 @@ export class AppComponent implements OnInit {
         this.dialogue = [DialogueText.KITCHEN_BOARD[0]];
         break;
       case ClickActions.KITCHEN_RIGHT_WINDOW:
-        this.dialogue = [DialogueText.KITCHEN_RIGHT_WINDOW[this.getRandomTextIndex(DialogueText.KITCHEN_RIGHT_WINDOW.length)]];
+        this.dialogue = [
+          DialogueText.KITCHEN_RIGHT_WINDOW[
+            this.getRandomTextIndex(DialogueText.KITCHEN_RIGHT_WINDOW.length)
+          ],
+        ];
         break;
       case ClickActions.KITCHEN_LEFT_WINDOW:
         if (this.foundClues.includes(Clues.BROKEN_WINDOW)) {
           this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[1]];
         } else {
           this.dialogue = [DialogueText.KITCHEN_LEFT_WINDOW[0]];
-          this.foundClues.push(Clues.BROKEN_WINDOW)
+          this.foundClues.push(Clues.BROKEN_WINDOW);
         }
         break;
       case ClickActions.KITCHEN_DOOR:
@@ -130,27 +184,27 @@ export class AppComponent implements OnInit {
   }
 
   onAddSticker(sticker: Sticker) {
-     if(sticker === Sticker.TAP) {
-       if (!this.foundStickers.includes(sticker)) {
-      this.foundStickers.push(sticker);
-      this.notificationService.showNotification('You found TAP!')
-      this.dialogue = [DialogueText.STICKER_TAP[0]];
-      this.isDialogOpen = true;
-    } else {
-      this.dialogue = [DialogueText.STICKER_TAP[1]];
-      this.isDialogOpen = true;
+    if (sticker === Sticker.TAP) {
+      if (!this.foundStickers.includes(sticker)) {
+        this.foundStickers.push(sticker);
+        this.notificationService.showNotification('You found TAP!');
+        this.dialogue = [DialogueText.STICKER_TAP[0]];
+        this.isDialogOpen = true;
+      } else {
+        this.dialogue = [DialogueText.STICKER_TAP[1]];
+        this.isDialogOpen = true;
+      }
+    } else if (sticker === Sticker.SAK) {
+      if (!this.foundStickers.includes(sticker)) {
+        this.foundStickers.push(sticker);
+        this.notificationService.showNotification('You found SAK!');
+        this.dialogue = [DialogueText.STICKER_SAK[0]];
+        this.isDialogOpen = true;
+      } else {
+        this.dialogue = [DialogueText.STICKER_SAK[1]];
+        this.isDialogOpen = true;
+      }
     }
-     } else if(sticker === Sticker.SAK) {
-       if (!this.foundStickers.includes(sticker)) {
-         this.foundStickers.push(sticker);
-         this.notificationService.showNotification('You found SAK!')
-         this.dialogue = [DialogueText.STICKER_SAK[0]];
-         this.isDialogOpen = true;
-       } else {
-         this.dialogue = [DialogueText.STICKER_SAK[1]];
-         this.isDialogOpen = true;
-       }
-     }
   }
 
   private playNextScene(scene: Scene): void {

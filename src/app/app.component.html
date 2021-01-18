@@ -1,9 +1,10 @@
-<app-notification></app-notification>
-<app-bagpack *ngIf="showKitchen" (bagpackChecked)="showInventory = !showInventory"></app-bagpack>
-<app-inventory-panel *ngIf="showInventory" [items]="inventory"></app-inventory-panel>
-<app-kitchen *ngIf="showKitchen" (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></app-kitchen>
-<app-black-overlay *ngIf="showBlackOverlay && !showLastScene" [foundStickers]="foundStickers.length" [foundItems]="inventory.length" (lastScene)="showLastScene = true"></app-black-overlay>
-<app-neighbor *ngIf="showLastScene"></app-neighbor>
-<app-logo *ngIf="showLogo"></app-logo>
-<app-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()" [closeButtonText]="lastScene">Test</app-dialog>
-<app-sticker [stickers]="foundStickers"></app-sticker>
+<tea-notification></tea-notification>
+<tea-main-menu></tea-main-menu>
+<tea-bagpack *ngIf="showKitchen" (bagpackChecked)="showInventory = !showInventory"></tea-bagpack>
+<tea-inventory-panel *ngIf="showInventory" [items]="inventory"></tea-inventory-panel>
+<tea-kitchen *ngIf="showKitchen" (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></tea-kitchen>
+<tea-black-overlay *ngIf="showBlackOverlay && !showLastScene" [foundStickers]="foundStickers.length" [foundItems]="inventory.length" (lastScene)="showLastScene = true"></tea-black-overlay>
+<tea-neighbor *ngIf="showLastScene"></tea-neighbor>
+<tea-logo *ngIf="showLogo"></tea-logo>
+<tea-dialog *ngIf="isDialogOpen" class="dialog" [dialog]="dialogue" (dialogEnded)="onDialogEnded()" [closeButtonText]="lastScene">Test</tea-dialog>
+<tea-sticker [stickers]="foundStickers"></tea-sticker>

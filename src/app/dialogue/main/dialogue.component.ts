@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-dialog',
+  selector: 'tea-dialog',
   templateUrl: './dialogue.component.html',
-  styleUrls: ['./dialogue.component.scss']
+  styleUrls: ['./dialogue.component.scss'],
 })
 export class DialogueComponent {
   @Input() dialog: string[];
@@ -12,10 +12,9 @@ export class DialogueComponent {
     return this.closeButtonText ? this.closeButtonText : 'Close';
   }
   @Output() public dialogEnded: EventEmitter<any> = new EventEmitter<any>();
-  private currentTextIndex: number = 0;
+  private currentTextIndex = 0;
 
-  constructor() {
-  }
+  constructor() {}
 
   get isLastPage(): boolean {
     return this.currentTextIndex === this.dialog.length - 1;

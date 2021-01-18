@@ -1,17 +1,16 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-bagpack',
+  selector: 'tea-bagpack',
   templateUrl: './bagpack-button.component.html',
-  styleUrls: ['./bagpack-button.component.scss']
+  styleUrls: ['./bagpack-button.component.scss'],
 })
 export class BagpackButtonComponent implements OnInit {
-  isButtonChecked: boolean = false;
+  isButtonChecked = false;
   @Output() bagpackChecked: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   toggleCheckButton(): void {
     this.isButtonChecked = !this.isButtonChecked;

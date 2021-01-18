@@ -3,19 +3,20 @@ import { ClickActions } from '../click-actions';
 import { Sticker } from '../../material/sticker';
 
 @Component({
-  selector: 'app-kitchen',
+  selector: 'tea-kitchen',
   templateUrl: './kitchen.component.html',
-  styleUrls: ['./kitchen.component.scss']
+  styleUrls: ['./kitchen.component.scss'],
 })
 export class KitchenComponent implements OnInit {
-  @Output() openDialog: EventEmitter<ClickActions> = new EventEmitter<ClickActions>();
+  @Output()
+  openDialog: EventEmitter<ClickActions> = new EventEmitter<ClickActions>();
   @Output() closeDialog: EventEmitter<any> = new EventEmitter<any>();
   @Output() addSticker: EventEmitter<Sticker> = new EventEmitter<Sticker>();
 
-  showWindowActions: boolean = false;
-  foundMissingCup: boolean = false;
-  showCupboardActions: boolean = false;
-  showKitchenActions: boolean = true;
+  showWindowActions = false;
+  foundMissingCup = false;
+  showCupboardActions = false;
+  showKitchenActions = true;
   ClickAction = ClickActions;
   private urls: string[] = [
     '../../assets/01-kitchen.jpg',
@@ -31,8 +32,7 @@ export class KitchenComponent implements OnInit {
     this.imageUrl = this.urls[0];
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   showWindow(): void {
     this.closeDialog.emit();
@@ -43,8 +43,8 @@ export class KitchenComponent implements OnInit {
 
   showCupboard(): void {
     this.closeDialog.emit();
-    if(!this.foundMissingCup) {
-    this.imageUrl = this.urls[1];
+    if (!this.foundMissingCup) {
+      this.imageUrl = this.urls[1];
     } else {
       this.imageUrl = this.urls[2];
     }
@@ -68,6 +68,6 @@ export class KitchenComponent implements OnInit {
 
   onLeftWindowClicked(): void {
     this.imageUrl = this.urls[4];
-    this.openDialog.emit(this.ClickAction.KITCHEN_LEFT_WINDOW)
+    this.openDialog.emit(this.ClickAction.KITCHEN_LEFT_WINDOW);
   }
 }
