@@ -1,5 +1,11 @@
 @import "src/z-index";
 
+:host {
+display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
 .dialog {
   position: absolute;
   bottom: 1rem;
@@ -7,10 +13,10 @@
   right: 1rem;
 }
 
-app-sticker {
+tea-sticker {
   z-index: $stickersZIndex;
 }
 
-app-dialog {
+tea-dialog {
   z-index: $dialogZIndex;
 }

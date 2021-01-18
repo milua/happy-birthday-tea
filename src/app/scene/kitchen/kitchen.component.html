@@ -1,4 +1,4 @@
-<img src="{{imageUrl}}">
+<img src="{{imageUrl}}" alt="kitchen-background">
 <ng-container *ngIf="showKitchenActions">
   <button class="button-cupboard" (click)="showCupboard()"></button>
   <button class="button-window" (click)="showWindow()"></button>
@@ -18,14 +18,14 @@
   <button class="button-sink" (click)="addSticker.emit(Sticker.SAK)"></button>
 </ng-container>
 <ng-container *ngIf="showCupboardActions">
-  <app-back-button (click)="showKitchen()"></app-back-button>
+  <tea-back-button (click)="showKitchen()"></tea-back-button>
   <button class="button-tap" (click)="addSticker.emit(Sticker.TAP)"></button>
   <button class="button-cups" (click)="openDialog.emit(ClickAction.KITCHEN_CUPS)"></button>
   <button class="button-empty-spot" (click)="onEmptySpotClicked()"></button>
 
 </ng-container>
 <ng-container *ngIf="showWindowActions">
-  <app-back-button (click)="showKitchen()"></app-back-button>
+  <tea-back-button (click)="showKitchen()"></tea-back-button>
   <button class="left-window" (click)="onLeftWindowClicked()"></button>
   <button class="right-window" (click)="openDialog.emit(ClickAction.KITCHEN_RIGHT_WINDOW)"></button>
 </ng-container>
