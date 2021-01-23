@@ -1,5 +1,5 @@
 <tea-notification></tea-notification>
-<tea-main-menu></tea-main-menu>
+<tea-main-menu *ngIf="false"></tea-main-menu>
 <tea-bagpack *ngIf="showKitchen" (bagpackChecked)="showInventory = !showInventory"></tea-bagpack>
 <tea-inventory-panel *ngIf="showInventory" [items]="inventory"></tea-inventory-panel>
 <tea-kitchen *ngIf="showKitchen" (openDialog)="openKitchenDialog($event)" (closeDialog)="isDialogOpen = false" (addSticker)="onAddSticker($event)"></tea-kitchen>
