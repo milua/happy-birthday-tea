@@ -8,10 +8,11 @@
   width: 83vw;
   height: 47vw;
   position: absolute;
-  top: 0vw;
+  top: 0;
   right: 8.5vw;
   z-index: $inventoryZIndex;
 }
+
 h1 {
   align-self: center;
 }
@@ -19,12 +20,11 @@ h1 {
 .container-items {
   display: flex;
 }
+
 .item {
-  background-color: black;
   width: 5vw;
   height: 5vw;
   margin: 1rem;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -30,4 +30,8 @@ export class InventoryPanelComponent implements OnInit {
       return 'A never melting snowball.';
     }
   }
+
+  getIconUrl(item: Items): string {
+    return '../../../assets/backpack/' + item.valueOf() + '.svg';
+  }
 }

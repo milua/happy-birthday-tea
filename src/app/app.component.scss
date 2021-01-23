@@ -19,3 +19,7 @@ tea-sticker {
 tea-dialog {
   z-index: $dialogZIndex;
 }
+
+.cursor-snowball {
+  cursor: url("/assets/backpack/snowball.gif"), default;
+}
