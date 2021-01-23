@@ -1,5 +1,4 @@
-
 export enum Items {
-  ELASTICS,
-  SNOWBALL
+  ELASTICS = 'elastics',
+  SNOWBALL = 'snowball',
 }
